@@ -19,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
         webConfig.setPort(8088);
         webConfig.setMaxParallels(50);
         shs = new SimpleHttpServer(webConfig);
+        shs.registerResourceHandler(new ResourceInAssetsHandler());
+        shs.registerResourceHandler(new UploadImageHandler());
         shs.startAsync();
     }
 
